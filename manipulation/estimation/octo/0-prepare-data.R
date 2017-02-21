@@ -132,17 +132,18 @@ ds_wide <- ds %>%
     smoke    = ifelse(Smoke %in% c(1,2,3),1,0),
     cardio   = CVD1,
     diabetes = diabYN1,
-    dementia_ever = DemEver
+    dementia_ever = DemEver, 
+    dementia_entry = ifelse(YTDem>0,0,ifelse(YTDem<=0,1,NA))
   ) %>%
   dplyr::select(
     Case,PairID,
     male,
     age_c80, edu_c7, htm_c, smoke, cardio, diabetes,
-    dementia_ever,
+    dementia_ever,dementia_entry,
     dplyr::everything()
     ) %>%
   dplyr::select(
-    -TwinID, -Female, -CompAge1,-Smoke, -height1,-DemEver, -Educyrs, -CVD1, -diabYN1
+    -TwinID, -Female, -CompAge1,-Smoke, -height1,-DemEver, -Educyrs, -CVD1, -diabYN1, -YTDem
   )
 
 ds_wide %>%

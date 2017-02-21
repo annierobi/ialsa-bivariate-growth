@@ -101,7 +101,8 @@ ls_model_type <- list(
 # Use the first example as the template for further pairs
 
 wave_set_modeled <-  c(1,2,3,4,5)
-subset_condition_1 <- "dementia_ever NE 1"
+# subset_condition_1 <- "dementia_ever NE 1"
+subset_condition_1 <- "dementia_entry NE 1"
 folder_data        = "./data/unshared/derived/octo-1"
 path_prototype     = "./manipulation/estimation/prototype-wide-octo.inp"
 folder_output      = "./output/studies/octo/phys-cog"
@@ -109,19 +110,19 @@ folder_output      = "./output/studies/octo/phys-cog"
 # folder_output      = "./output/studies/map/phys-cog/pulmonary"
 
 # single model
-# mplus_generator_bivariate(
-#    model_number       = "b1"
-#   ,subgroup           = "male"
-#   ,model_type         = "aehplus"
-#   ,process_a          = 'pef'# item name of process (A), goes into file name
-#   ,process_b          = 'block'# item name of process (B), goes into file name
-#   ,wave_set_modeled   = wave_set_modeled
-#   ,subset_condition_1 = subset_condition_1 # subset data to member of this group
-#   ,path_prototype     = path_prototype
-#   ,folder_data        = folder_data
-#   ,folder_output      = folder_output
-#   ,run_models         = TRUE # If TRUE then Mplus runs estimation to produce .out, .gh5, and/or, other files
-# )
+mplus_generator_bivariate(
+   model_number       = "b1"
+  ,subgroup           = "male"
+  ,model_type         = "aehplus"
+  ,process_a          = 'pef'# item name of process (A), goes into file name
+  ,process_b          = 'block'# item name of process (B), goes into file name
+  ,wave_set_modeled   = wave_set_modeled
+  ,subset_condition_1 = subset_condition_1 # subset data to member of this group
+  ,path_prototype     = path_prototype
+  ,folder_data        = folder_data
+  ,folder_output      = folder_output
+  ,run_models         = TRUE # If TRUE then Mplus runs estimation to produce .out, .gh5, and/or, other files
+)
 
 # loop over conditions
 for(phys_measure in "pef"){
