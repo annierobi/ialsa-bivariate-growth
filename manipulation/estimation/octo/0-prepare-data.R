@@ -58,6 +58,7 @@ varnames_context <- c(
   ,"CVD1"      # cardio vascular disease at wave 0
   ,"diabYN1"   # diabetes at wave 0
   ,"DemEver"   # dementia every
+  ,"YTDem"     # years to dementia diagnosis
 )
 
 varnames_physical <- c(
